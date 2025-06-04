@@ -9,9 +9,10 @@ import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { weatherReducer } from './core/store/weather.reducer';
 import { WeatherEffects } from './core/store/weather.effects';
+import { errorHandlingInterceptor } from './core/interceptors/error-handling.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +21,6 @@ export const appConfig: ApplicationConfig = {
     provideStore({ weather: weatherReducer }),
     provideEffects([WeatherEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([errorHandlingInterceptor])),
   ],
 };

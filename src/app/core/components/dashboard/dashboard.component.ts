@@ -6,6 +6,10 @@ import { MessageAreaComponent } from '../message-area/message-area.component';
 import { CommonModule } from '@angular/common';
 import * as WeatherActions from '../../store/weather.actions';
 import { ForecastCardsComponent } from '../forecast-cards/forecast-cards.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +19,10 @@ import { ForecastCardsComponent } from '../forecast-cards/forecast-cards.compone
     ProgressLoaderComponent,
     MessageAreaComponent,
     ForecastCardsComponent,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
@@ -24,10 +32,7 @@ export class DashboardComponent {
 
   constructor(private store: Store<{ weather: WeatherState }>) {}
 
-  onCityChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement; // Explicitly cast to HTMLSelectElement
-    const city = selectElement.value; // Access 'value' property
-
+  onCityChange(city: string): void {
     console.log(`[DashboardComponent] City selected: ${city}`);
 
     if (city === 'null') {

@@ -25,48 +25,12 @@
   text-align: center;
   box-sizing: border-box;
 }
-.city-selector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-.label {
-  font-size: 1em;
-  color: #555;
-  margin-right: 15px;
-  font-weight: 600;
-}
-.select-dropdown {
-  min-width: 30%;
-  padding: 0.5rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 1em;
-  color: #333;
-  background-color: #f9f9f9;
-  cursor: pointer;
-}
-
-.select-dropdown:hover {
-  border-color: #a0a0a0;
-}
-.select-dropdown:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+.city-dropdown {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
   .container {
     padding: 20px;
-  }
-
-  .select-dropdown {
-    width: 100%;
-    margin-top: 10px;
-  }
-  .city-selector {
-    flex-direction: column;
   }
 }

@@ -1,18 +1,16 @@
 <div class="wrapper">
   <div class="container">
     <div class="title">5-Day Weather Forecast</div>
-
-    <div class="city-selector">
-      <label for="city-select" class="label">Select a City:</label>
-      <select
-        id="city-select"
-        (change)="onCityChange($event)"
-        class="select-dropdown"
-      >
-        <option [value]="null">-- Select a City --</option>
-        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-      </select>
-    </div>
+    <div class="input-area"></div>
+    <mat-form-field class="city-dropdown" appearance="fill">
+      <mat-label>Select a City</mat-label>
+      <mat-select (selectionChange)="onCityChange($event.value)">
+        <mat-option [value]="'null'">-- No Selection --</mat-option>
+        <mat-option *ngFor="let city of cities" [value]="city">{{
+          city
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
     <app-message-area></app-message-area>
     <app-forecast-cards></app-forecast-cards>
     <app-progress-loader></app-progress-loader>
