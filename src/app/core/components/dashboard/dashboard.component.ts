@@ -30,11 +30,9 @@ export class DashboardComponent {
 
   constructor(private store: Store<{ weather: WeatherState }>) {}
 
-  onCityChange(city: string): void {
-    console.log(`[DashboardComponent] City selected: ${city}`);
-
-    if (city === 'null') {
-      // Check for the "Select a City" option
+  onCityChange(city: string | null): void {
+    if (city === null) {
+      // reset the data
       this.store.dispatch(WeatherActions.clearForecast());
     } else {
       this.store.dispatch(WeatherActions.loadForecast({ city }));

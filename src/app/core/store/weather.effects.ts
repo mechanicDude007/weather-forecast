@@ -23,6 +23,7 @@ export class WeatherEffects {
           const { city } = action;
 
           if (forecasts && forecasts[city] && forecasts[city].length > 0) {
+            //cached data
             return of(
               WeatherActions.loadForecastSuccess({
                 city,

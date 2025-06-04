@@ -29,7 +29,7 @@ export class ApiService {
     response.list.forEach((item: any) => {
       const date = item.dt_txt.split(' ')[0];
       if (!dailyMap.has(date) && dailyMap.size < 5) {
-        //taking the first forecast of the day
+        //taking the first forecast of the day only
         dailyMap.set(date, {
           date,
           temperature: item.main.temp,
