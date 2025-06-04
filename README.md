@@ -2,6 +2,8 @@
 
 A standalone Angular application providing a 5-day weather forecast for selected cities using NgRx for state management.
 
+Live Url : https://weather-forecast-4a806.firebaseapp.com/
+
 Features
 
     City Selection: Get forecasts for Birmingham, London, or Cardiff.
