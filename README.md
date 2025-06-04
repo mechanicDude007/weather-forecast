@@ -5,7 +5,7 @@ A standalone Angular application providing a 5-day weather forecast for selected
 Features
 
     City Selection: Get forecasts for Birmingham, London, or Cardiff.
-    Detailed Forecasts: Displays date, temperature (current, min, max), wind speed, description, and icon.
+    Detailed Forecasts: Displays date, temperature, wind speed, description, and icon.
     NgRx State Management: Uses NgRx Store, Effects, and Selectors.
     Loading & Error Handling: Shows loaders during data fetching and messages for errors.
     Angular Standalone Components: Built with a modern, modular architecture.
