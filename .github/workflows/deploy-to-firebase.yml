@@ -1,0 +1,34 @@
+name: Deploy to Firebase Hosting (on push to master)
+
+on:
+  push:
+    branches:
+      - master # Or 'main' if that's your primary branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # Checks out your repository code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4 # Sets up Node.js for building
+        with:
+          node-version: "20" # Use your specific Node.js version, or a compatible LTS
+
+      - name: Install dependencies and build Angular app
+        run: npm ci && npm run build -- --configuration production # Builds your app for production
+        env:
+          CI: true # This can prevent some npm errors in CI environments
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0 # The GitHub Action for Firebase Deploy
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}" # Automatically provided by GitHub Actions
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEATHER_FORECAST_4A806 }}" # This secret was created by `firebase init hosting:github`
+          projectId: weather-forecast-4a806 # Your Firebase Project ID
+          channelId: live # Deploy to the live channel (your main domain)
+          # The 'entryPoint' below is only needed if your public folder is not directly at the repo root
+          # For Angular, your 'public' path is in firebase.json, and this action respects that.
+          # But if you had issues, you could explicitly set the build artifact path like:
+          # entryPoint: "dist/weather-forecast/browser"
