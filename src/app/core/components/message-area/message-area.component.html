@@ -1,0 +1,9 @@
+<div *ngIf="error() as errorMessage" class="error-message">
+  <p>Error: {{ errorMessage }}. Please try again.</p>
+</div>
+<div
+  *ngIf="!selectedCity() && !loading() && !error()"
+  class="no-city-selected-message"
+>
+  <p>Please select a city to see weather forecast</p>
+</div>

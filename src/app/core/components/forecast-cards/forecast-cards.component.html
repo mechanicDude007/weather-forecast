@@ -1,0 +1,22 @@
+<div
+  *ngIf="forecastsForCity().length > 0 && !loading() && !error()"
+  class="forecast-area"
+>
+  <div *ngFor="let forecast of forecastsForCity()" class="forecast-card">
+    <h3 class="forecast-date">{{ formatDate(forecast.date) }}</h3>
+    <div class="weather-details">
+      <img
+        [src]="forecast.icon"
+        [alt]="forecast.description"
+        class="weather-icon"
+      />
+      <p class="temperature">{{ forecast.temperature | number : "1.0-0" }}°C</p>
+      <p class="description">
+        {{ capitalizeFirstLetter(forecast.description) }}
+      </p>
+      <p class="windspeed">
+        Wind: {{ forecast.windspeed | number : "1.1-1" }} m/s
+      </p>
+    </div>
+  </div>
+</div>

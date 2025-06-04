@@ -1,5 +1,15 @@
 # WeatherForecast
 
+A standalone Angular application providing a 5-day weather forecast for selected cities using NgRx for state management.
+
+Features
+
+    City Selection: Get forecasts for Birmingham, London, or Cardiff.
+    Detailed Forecasts: Displays date, temperature (current, min, max), wind speed, description, and icon.
+    NgRx State Management: Uses NgRx Store, Effects, and Selectors.
+    Loading & Error Handling: Shows loaders during data fetching and messages for errors.
+    Angular Standalone Components: Built with a modern, modular architecture.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
 
 ## Development server
